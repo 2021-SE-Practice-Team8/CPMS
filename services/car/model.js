@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 const carScheam = mongoose.Schema({
-    id_num: String,
+    id_num: {
+        type: String,
+        unique: true,
+        required: true,
+        index: true
+    },
     name: String,
     tel: String,
     apartment: String

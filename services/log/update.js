@@ -6,12 +6,12 @@ const model = require('./model');
  * @param {object} where 
  * @param {object} newFileds 
  */
-function updateOne(id, newFields){
+function updateOne(where, newFields){
     //console.log(id);
     //console.log(newFields);
     return new Promise((resolve,reject) => {
         model.updateOne(
-            {_id: id},
+            where,
             newFields
         ).then(res=>{
             console.log(res);

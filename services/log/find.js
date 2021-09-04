@@ -20,5 +20,22 @@ function find(where){
     })
 }
 
+function findOne(where){
+    //console.log(where);
+    return new Promise((resolve,reject) => {
+        model.findOne(
+            where
+        ).then(res=>{
+            console.log(res);
+            resolve(res);
+        }).catch(err=>{
+            console.log(err);
+            reject(err);
+        });
+    })
+}
 
-module.exports = {find};
+module.exports = {
+    find,
+    findOne
+};
