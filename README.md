@@ -9,6 +9,51 @@ Team8
 
 > host待定～
 
+### admin(管理员账户登陆)
+
+- request:
+
+  - url: POST http://host:8888/admin
+
+  - Body: {
+
+    ​	username: String
+
+    ​	password: String	
+
+    }
+
+- response
+  - 正常
+
+    status: 200
+
+    body: {
+
+    ​	message: "Login OK!"
+
+    }
+
+  - 用户名或密码错误
+
+    status: 403
+
+    body: {
+
+    ​	message: "Login error!"
+
+    }
+
+  - 异常
+
+    status: 403
+
+    body: {
+
+    ​	message: "LoginFunc error!"
+
+    }
+
 ### car（校内车集合）：
 
 1. 增
