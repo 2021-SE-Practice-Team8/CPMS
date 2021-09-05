@@ -19,7 +19,6 @@ function find(where){
         });
     })
 }
-
 function findOne(where){
     //console.log(where);
     return new Promise((resolve,reject) => {

@@ -9,11 +9,7 @@ const parkingScheam = mongoose.Schema({
     },
     is_fixed: Boolean,
     is_occupied: Boolean,
-    id_num: {
-        type: String,
-        unique: true,
-        index: true
-    }
-})
+    id_num: String
+});
 
 module.exports = mongoose.model("ParkingModel",parkingScheam,"parking");

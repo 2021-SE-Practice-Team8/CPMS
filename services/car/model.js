@@ -10,6 +10,6 @@ const carScheam = mongoose.Schema({
     name: String,
     tel: String,
     apartment: String
-})
+});
 
 module.exports = mongoose.model("CarModel",carScheam,"car");

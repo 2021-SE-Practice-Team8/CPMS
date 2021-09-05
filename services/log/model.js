@@ -8,6 +8,6 @@ const logScheam = mongoose.Schema({
         index: true
     },
     log_info: Array
-})
+});
 
-module.exports = mongoose.model("LogModel",LogScheam,"log");
+module.exports = mongoose.model("LogModel",logScheam,"log");

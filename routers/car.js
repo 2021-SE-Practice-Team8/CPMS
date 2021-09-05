@@ -8,8 +8,10 @@ const routers = router
             console.log(ctx.response);
             ctx.status = 200;
         } catch (error) {
-            ctx.message = "findFunc error";
-            ctx.body = error;
+            ctx.body = {
+                message: "findFunc error",
+                error
+            };
             ctx.status = 403;
         }            
     })
@@ -19,8 +21,10 @@ const routers = router
             console.log(ctx.response);
             ctx.status = 200;
         } catch (error) {
-            ctx.message = "updateFunc error";
-            ctx.body = error;
+            ctx.body = {
+                message: "updateFunc error",
+                error
+            };
             ctx.status = 403;
         }
     })
@@ -30,8 +34,10 @@ const routers = router
             console.log(ctx.response);
             ctx.status = 200;
         } catch (error) {
-            ctx.message = "createFunc error";
-            ctx.body = error;
+            ctx.body = {
+                message: "createFunc error",
+                error
+            };
             ctx.status = 403;
         }
     })
@@ -41,8 +47,10 @@ const routers = router
             console.log(ctx.response);
             ctx.status = 200;
         } catch (error) {
-            ctx.message = "removeFunc error";
-            ctx.body = error;
+            ctx.body = {
+                message: "removeFunc error",
+                error
+            };
             ctx.status = 403;
         }
     });

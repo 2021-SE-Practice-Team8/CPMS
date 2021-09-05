@@ -29,9 +29,9 @@ Team8
 
        status: 403
 
-       message: "findFunc error"
-
        body: Object //报错信息
+
+       body.message: "findFunc error"
 
 2. 删
 
@@ -51,9 +51,9 @@ Team8
 
        status: 403
 
-       message: "removeFunc error"
-
        body: Object //报错信息
+
+       body.message: "removeFunc error"
 
 3. 改
 
@@ -81,9 +81,9 @@ Team8
 
        status: 403
 
-       message: "updateFunc error"
-
        body: Object //报错信息
+
+       body.message: "updateFunc error"
 
 4. 查
 
@@ -103,9 +103,9 @@ Team8
 
        status: 403
 
-       message: "findFunc error"
-
        body: Object //报错信息
+
+       body.message: "findFunc error"
 
 ### parking（车位集合）：
 
@@ -127,9 +127,9 @@ Team8
 
        status: 403
 
-       message: "findFunc error"
-
        body: Object //报错信息
+
+       body.message: "findFunc error"
 
 2. 删
 
@@ -149,9 +149,9 @@ Team8
 
        status: 403
 
-       message: "removeFunc error"
-
        body: Object //报错信息
+
+       body.message: "removeFunc error"
 
 3. 改
 
@@ -179,9 +179,9 @@ Team8
 
        status: 403
 
-       message: "updateFunc error"
-
        body: Object //报错信息
+
+       body.message: "updateFunc error"
 
 4. 查
 
@@ -201,9 +201,9 @@ Team8
 
        status: 403
 
-       message: "findFunc error"
-
        body: Object //报错信息
+
+       body.message: "findFunc error"
 
 ### log（日志集合）：
 
@@ -225,25 +225,29 @@ Team8
 
        status: 403
 
-       message: "The car already has entered!"
+       body: {
 
-       body: null
+       ​	message: "The car already has entered!"
+
+       }
 
      - 无车位
 
        status: 403
 
-       message: "No Parking"
+       body: {
 
-       body: null
+       ​	message: "No Parking Space!"
+
+       }
 
      - 异常
 
        status: 403
 
-       message: "enterFunc error"
-
        body: Object //报错信息
+
+       body.message: "enterFunc error"
 
 2. 开车出库
 
@@ -263,13 +267,23 @@ Team8
 
        } //结果信息
 
+     - 车已离开
+
+       status: 403
+
+       body: {
+
+       ​	message: "The Car has Leaved!"
+
+       }
+
      - 异常
 
        status: 403
 
-       message: "leaveFunc error"
-
        body: Object //报错信息
+
+       body.message: "leaveFunc error"
 
 3. 查
 
@@ -289,6 +303,6 @@ Team8
 
        status: 403
 
-       message: "findFunc error"
-
        body: Object //报错信息
+
+       body.message: "findFunc error"
