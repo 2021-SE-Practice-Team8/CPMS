@@ -81,7 +81,7 @@ Team8
 2. 删
 
    - request：
-     - url：POST http://host:8888/car/remove
+     - url：DELETE http://host:8888/car/remove
      - body：Object //查询条件
 
    - response：
@@ -179,7 +179,7 @@ Team8
 2. 删
 
    - request：
-     - url：POST http://host:8888/parking/remove
+     - url：DELETE http://host:8888/parking/remove
      - body：Object //查询条件
 
    - response：
