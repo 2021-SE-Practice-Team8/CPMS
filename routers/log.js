@@ -38,18 +38,18 @@ async function editLog(theCarID) {
  * @param {Object} isFixed 
  * @returns Object
  */
-async function CommonParking(isFixed) {
+async function CommonParking(idNum) {
     let hasCommonPaking = await parking.findFunc.findOne({
-        is_fixed: isFixed.res,
+        is_fixed: false,
         is_occupied: false
     });
     if (hasCommonPaking) {
         //有普通车位
-        await editLog(isFixed.id_num);
+        await editLog(idNum);
         let body = await parking.updateFunc.updateOne(
             hasCommonPaking, {
             is_occupied: true,
-            id_num: isFixed.id_num
+            id_num: idNum
         })
         return {
             isOK: true,
@@ -103,7 +103,7 @@ const routers = router
                         console.log(ctx.response);
                     } else {
                         // 无专用车位
-                        let tempRes = await CommonParking({res:true, id_num: ctx.request.body.id_num});
+                        let tempRes = await CommonParking(ctx.request.body.id_num);
                         if (tempRes.isOK) {
                             ctx.body = tempRes.body;
                             ctx.status = 200;
