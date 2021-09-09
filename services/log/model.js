@@ -5,9 +5,13 @@ const logScheam = mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        index: true
+        index: true,
+        default: "undefined"
     },
-    log_info: Array
+    log_info: {
+        type: Array,
+        default: null
+    }
 });
 
 module.exports = mongoose.model("LogModel",logScheam,"log");

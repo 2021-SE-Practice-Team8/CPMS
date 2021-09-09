@@ -5,11 +5,21 @@ const carScheam = mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        index: true
+        index: true,
+        default: "undefined"
     },
-    name: String,
-    tel: String,
-    apartment: String
+    name: {
+        type: String,
+        default: "default_name"
+    },
+    tel: {
+        type: String,
+        default: "000000000000"
+    },
+    apartment: {
+        type: String,
+        default: "default_apart"
+    }
 });
 
 module.exports = mongoose.model("CarModel",carScheam,"car");

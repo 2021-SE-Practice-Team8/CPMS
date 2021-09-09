@@ -5,11 +5,21 @@ const parkingScheam = mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        index: true
+        index: true,
+        default: "undefined"
     },
-    is_fixed: Boolean,
-    is_occupied: Boolean,
-    id_num: String
+    is_fixed: {
+        type: Boolean,
+        default: false
+    },
+    is_occupied: {
+        type: Boolean,
+        default: true
+    },
+    id_num: {
+        type: String,
+        default: "undefined"
+    }
 });
 
 module.exports = mongoose.model("ParkingModel",parkingScheam,"parking");
