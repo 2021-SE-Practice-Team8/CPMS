@@ -118,7 +118,7 @@ const routers = router
                     }
                 } else {
                     // 是校外车
-                    let tempRes = await CommonParking({res:false, id_num: ctx.request.body.id_num});
+                    let tempRes = await CommonParking(ctx.request.body.id_num);
                     if (tempRes.isOK) {
                         ctx.body = tempRes.body;
                         ctx.status = 200;
