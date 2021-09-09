@@ -3,7 +3,21 @@ Car parking management system
 
 Team8
 
+- 安装模块
 
+  ```shell
+  npm instal
+  ```
+
+  
+
+
+
+- 启动程序
+
+  ```shell
+  node CPMS
+  ```
 
 ## API:
 
