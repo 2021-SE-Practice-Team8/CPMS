@@ -39,15 +39,17 @@ async function editLog(theCarID) {
  * @returns Object
  */
 async function CommonParking(idNum) {
-    let hasCommonPaking = await parking.findFunc.findOne({
+    let hasCommonPaking = await parking.findFunc.find({
         is_fixed: false,
         is_occupied: false
     });
-    if (hasCommonPaking) {
+    if (hasCommonPaking!=false) {
         //有普通车位
+        let index = getRandomInt(0,hasCommonPaking.length);
+        console.log(`from 0 to ${hasCommonPaking.length-1}, choose ${index}`);
         await editLog(idNum);
         let body = await parking.updateFunc.updateOne(
-            hasCommonPaking, {
+            hasCommonPaking[index], {
             is_occupied: true,
             id_num: idNum
         })
@@ -62,6 +64,18 @@ async function CommonParking(idNum) {
         }
     }
 }
+
+/**
+ * 
+ * @param {Number} min 
+ * @param {Number} max 
+ * @returns 
+ */
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+  }
 
 /**
  * 辅助函数 end
@@ -87,15 +101,17 @@ const routers = router
                 if (isFixed) {
                     // 是校内车
                     // 判断是否有专用车位
-                    let hasFixedParking = await parking.findFunc.findOne({
+                    let hasFixedParking = await parking.findFunc.find({
                         is_fixed: true,
                         is_occupied: false
                     });
-                    if (hasFixedParking) {
+                    if (hasFixedParking!=false) {
                         // 有专用车位
+                        let index = getRandomInt(0,hasFixedParking.length);
+                        console.log(`from 0 to ${hasFixedParking.length-1}, choose ${index}`);
                         await editLog(isFixed.id_num);
                         ctx.body = await parking.updateFunc.updateOne(
-                            hasFixedParking, {
+                            hasFixedParking[index], {
                             is_occupied: true,
                             id_num: isFixed.id_num
                         });
